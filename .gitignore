@@ -1,0 +1,62 @@
+# ===============================
+# 🔒 Root .gitignore for MERN + Vite + Node
+# ===============================
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+log.*
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.*        # ignore all .env files like .env.local, .env.production
+.env.local
+.env.development
+.env.production
+
+# Build outputs
+dist/
+build/
+.cache/
+.temp/
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+
+# Testing
+coverage/
+jest-*
+*.spec.js
+*.test.js
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Misc
+*.bak
+*.tmp

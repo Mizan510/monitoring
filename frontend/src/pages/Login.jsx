@@ -1,0 +1,112 @@
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import api, { setAuthToken } from "../api/api.js";
+
+const Login = ({ onLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
+
+  // ✅ Load saved email on first render
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberEmail");
+    const savedRemember = localStorage.getItem("rememberMe") === "true";
+
+    if (savedRemember && savedEmail) {
+      setEmail(savedEmail);
+      setRememberMe(true);
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await api.post("/auth/login", { email, password });
+
+      onLogin(res.data.token);
+      setAuthToken(res.data.token);
+
+      if (rememberMe) {
+        // ✅ Store token + email
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("rememberMe", "true");
+        localStorage.setItem("rememberEmail", email);
+      } else {
+        sessionStorage.setItem("token", res.data.token);
+        localStorage.removeItem("rememberMe");
+        localStorage.removeItem("rememberEmail");
+      }
+
+      navigate("/dashboard");
+    } catch (err) {
+      alert(
+        err.response?.data?.errors?.[0]?.msg ||
+        err.response?.data?.msg ||
+        "Login failed"
+      );
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto bg-white p-6 rounded shadow">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <h2 className="text-xl font-semibold text-center">Login</h2>
+
+        <input
+          type="email"
+          placeholder="Email"
+          className="border p-2 rounded w-full"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          className="border p-2 rounded w-full"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        {/* ✅ Remember Me */}
+        <label className="flex items-center text-sm text-gray-700 gap-2">
+          <input
+            type="checkbox"
+            className="w-4 h-4"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
+          Remember Me
+        </label>
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700"
+        >
+          Login
+        </button>
+
+        <p className="text-sm text-gray-700 text-center mt-2">
+          Don’t have an account?{" "}
+          <Link className="text-blue-600 hover:underline" to="/register">
+            Register
+          </Link>
+        </p>
+      </form>
+
+      <div className="text-center mt-4">
+        <button
+          onClick={() => navigate("/")}
+          className="text-gray-600 hover:text-blue-600 underline text-sm"
+        >
+          ← Back to Home
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
