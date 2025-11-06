@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-r from-blue-50     to-indigo-100">
-      <div className="bg-white p-10 rounded-2xl shadow-xl text-center max-w-lg">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full">
+      <div className="bg-white p-20  flex-col rounded-2xl shadow-2xl text-center max-w-1g">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
           Welcome to Daily Work
         </h1>
