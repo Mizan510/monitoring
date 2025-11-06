@@ -22,8 +22,8 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 p-6">
-        <div className="max-w-4xl mx-auto bg-white p-6 rounded shadow">
+      
+        <div className="bg-white p-6 rounded shadow">
           <h1 className="text-2xl font-bold mb-4">Monitoring App</h1>
 
           <Routes>
@@ -72,7 +72,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
-      </div>
+      
     </Router>
   );
 }

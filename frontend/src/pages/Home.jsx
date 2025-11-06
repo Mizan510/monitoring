@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-indigo-200 p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-indigo-200 p-3">
       <div className="bg-white p-10 rounded-2xl shadow-xl text-center max-w-lg">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
           Welcome to Daily Work

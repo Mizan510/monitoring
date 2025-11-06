@@ -10,3 +10,15 @@ git commit -m "Initial commit - ready for deploy"
 git branch -M main
 git remote add origin https://github.com/Mizan510/monitoring.git
 git push -u origin main
+
+
+
+# after any change & push
+git add .
+git commit -m "Something Updated"
+git push origin main
+
+
+
+# Make any change → save → commit → push to GitHub →
+# Vercel and Render automatically rebuild → your live site updates.
