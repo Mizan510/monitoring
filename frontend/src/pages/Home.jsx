@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full">
-      <div className="bg-white p-20  flex-col rounded-2xl shadow-2xl text-center max-w-1g">
+      <div className="bg-white p-10  flex-col rounded-2xl shadow-2xl text-center max-w-1g">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
           Welcome to Daily Work
         </h1>
