@@ -22,10 +22,8 @@ function App() {
 
   return (
     <Router>
-      
-        <div className="bg-white p-6 rounded shadow">
+        <div className="bg-white w-full p-6 rounded shadow">
           <h1 className="text-2xl font-bold mb-4">Monitoring App</h1>
-
           <Routes>
             {/* Home / Landing page */}
             <Route path="/" element={<Home />} />

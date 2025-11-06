@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-indigo-200 p-3">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-r from-blue-50     to-indigo-100">
       <div className="bg-white p-10 rounded-2xl shadow-xl text-center max-w-lg">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
           Welcome to Daily Work
         </h1>
         <p className="text-xl md:text-2xl font-semibold text-gray-800">
         “With sincerity, honesty, and dedication, everyone achieves success.”
-      </p>
-      <p className="text-lg md:text-xl text-gray-600 mt-2">
+        </p>
+       <p className="text-lg md:text-xl text-gray-600 mt-2">
         “সততা, নিষ্ঠা ও পরিশ্রমের মাধ্যমে, প্রত্যেকে সাফল্য অর্জন করে।”
-      </p>
-      <br/>
+        </p>
+       <br/>
         <div className="flex justify-center gap-6">
           <Link
             to="/login"
