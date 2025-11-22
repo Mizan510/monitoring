@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const recordSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 
   salesForecast: { type: Number, required: true, default: 0 },
   calboralDDXRxForecast: { type: Number, required: true, default: 0 },
@@ -29,22 +29,24 @@ const recordSchema = new mongoose.Schema({
   dischargeRx: { type: Number, required: true, default: 0 },
   gpRx: { type: Number, required: true, default: 0 },
 
-  sbuCOrderRouteName: { type: String, required: true, default: '' },
+  sbuCOrderRouteName: { type: String, required: true, default: "" },
   noOfPartySBUCOrderRoute: { type: Number, required: true, default: 0 },
   noOfCollectedOrderSBUC: { type: Number, required: true, default: 0 },
   noOfNotGivingOrderParty: { type: Number, required: true, default: 0 },
-  causeOfNotGivingOrder: { type: String, required: true, default: '' },
+  causeOfNotGivingOrder: { type: String, required: true, default: "" },
   marketTotalOrder: { type: Number, required: true, default: 0 },
   acetab250Order: { type: Number, required: true, default: 0 },
   acetab500Order: { type: Number, required: true, default: 0 },
   torax10TabOrder: { type: Number, required: true, default: 0 },
-  tezo200Order: { type: Number, required: true, default: 0 },
+  feozaOrder: { type: Number, required: true, default: 0 },
+  aceDuoOrder: { type: Number, required: true, default: 0 },
+  amenavirOrder: { type: Number, required: true, default: 0 },
 
   rxSendInDIDS: { type: Number, required: true, default: 0 },
   writtenRxInSurveyPad: { type: Number, required: true, default: 0 },
-  indoorSurvey: { type: String, required: true, default: '' },
+  indoorSurvey: { type: String, required: true, default: "" },
 
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Record', recordSchema);
+module.exports = mongoose.model("Record", recordSchema);
