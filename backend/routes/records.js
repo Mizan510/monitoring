@@ -24,7 +24,7 @@ router.post('/', authMiddleware, async (req, res) => {
       "calboralDDXRx", "neuroBRx", "zimaxRx", "urologicalRx", "hormonalRx", "aceBrand",
       "opdRx", "dischargeRx", "gpRx",
       "sbuCOrderRouteName", "noOfPartySBUCOrderRoute", "noOfCollectedOrderSBUC", "causeOfNotGivingOrder",
-      "marketTotalOrder", "acetab250Order", "acetab500Order", "torax10TabOrder", "tezo200Order",
+      "marketTotalOrder", "acetab250Order", "acetab500Order", "torax10TabOrder", "feozaOrder", "aceDuoOrder", "amenavirOrder",
       "rxSendInDIDS", "writtenRxInSurveyPad", "indoorSurvey"
     ];
 
@@ -154,7 +154,7 @@ router.get('/export', authMiddleware, async (req, res) => {
       { name: 'Forecasts', fields: ['Created At', 'Sales Forecast', 'Colboral-D/DX Rx Forecast', 'Neuro B Rx Forecast', 'Zimax Rx Forecast', 'Urological Rx Forecast', 'Hormone Rx Forecast', 'Torax 10 Rx Forecast', 'OPD Rx Forecast', 'GP Rx Forecast', 'Discharge Rx Forecast'], color: 'FFCCE5FF' },
       { name: 'Rx Details', fields: ['Colboral-D/DX Rx', 'Neuro B Rx', 'Zimax Rx', 'Urological Rx', 'Hormonal Rx', 'ACE Brand', 'Total Strategic Rx', 'Other Products Rx SBUC', 'Total Rxs'], color: 'FFCCFFCC' },
       { name: 'OPD', fields: ['OPD Rx', 'Discharge Rx', 'GP Rx'], color: 'FFFFFF99' },
-      { name: 'SBU Orders', fields: ['SBU C Order Route Name', 'No Of Party SBU C Order Route', 'No Of Collected Order SBU C', 'No Of Not Giving Order Party', 'Cause Of Not Giving Order', 'Market Total Order', 'Acetab 250 Order', 'Acetab 500 Order', 'Torax 10 Tab Order', 'Tezo 200 Order'], color: 'FFFFCCCC' },
+      { name: 'SBU Orders', fields: ['SBU C Order Route Name', 'No Of Party SBU C Order Route', 'No Of Collected Order SBU C', 'No Of Not Giving Order Party', 'Cause Of Not Giving Order', 'Market Total Order', 'Acetab 250 Order', 'Acetab 500 Order', 'Torax 10 Tab Order', 'Feoza Order', "Ace Duo Order", "Amenavir Order"], color: 'FFFFCCCC' },
       { name: 'Survey', fields: ['Rx Send In DIDS', 'Written Rx In Survey Pad', 'Indoor Survey'], color: 'FFE5CCFF' },
     ];
 
@@ -193,7 +193,9 @@ router.get('/export', authMiddleware, async (req, res) => {
       'Acetab 250 Order': 'acetab250Order',
       'Acetab 500 Order': 'acetab500Order',
       'Torax 10 Tab Order': 'torax10TabOrder',
-      'Tezo 200 Order': 'tezo200Order',
+      'Feoza Order': 'FeozaOrder',
+      'Ace Duo Order': 'aceDuoOrder',
+      'Amenavir Order': 'amenavirOrder',
       'Rx Send In DIDS': 'rxSendInDIDS',
       'Written Rx In Survey Pad': 'writtenRxInSurveyPad',
       'Indoor Survey': 'indoorSurvey'

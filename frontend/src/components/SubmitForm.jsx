@@ -167,10 +167,10 @@ const FIELD_GROUPS = [
       type: "number",
       placeholder: "Torax 10 TabOrder",
     },
-    { name: "FeozaOrder", label: "Feoza Order", type: "number", placeholder: "Feoza Order" },
-    { name: "AceDuoOrder", label: "Ace Duo Order", type: "number", placeholder: "Ace Duo Order" },
+    { name: "feozaOrder", label: "Feoza Order", type: "number", placeholder: "Feoza Order" },
+    { name: "aceDuoOrder", label: "Ace Duo Order", type: "number", placeholder: "Ace Duo Order" },
     {
-      name: "AmenavirOrder",
+      name: "amenavirOrder",
       label: "Amenavir Order",
       type: "number",
       placeholder: "Amenavir Order",
