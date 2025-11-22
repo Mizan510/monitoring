@@ -167,7 +167,14 @@ const FIELD_GROUPS = [
       type: "number",
       placeholder: "Torax 10 TabOrder",
     },
-    { name: "tezo200Order", label: "Tezo 200Order", type: "number", placeholder: "Tezo 200Order" },
+    { name: "FeozaOrder", label: "Feoza Order", type: "number", placeholder: "Feoza Order" },
+    { name: "AceDuoOrder", label: "Ace Duo Order", type: "number", placeholder: "Ace Duo Order" },
+    {
+      name: "AmenavirOrder",
+      label: "Amenavir Order",
+      type: "number",
+      placeholder: "Amenavir Order",
+    },
   ],
   [
     {
