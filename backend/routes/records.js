@@ -193,7 +193,7 @@ router.get('/export', authMiddleware, async (req, res) => {
       'Acetab 250 Order': 'acetab250Order',
       'Acetab 500 Order': 'acetab500Order',
       'Torax 10 Tab Order': 'torax10TabOrder',
-      'Feoza Order': 'FeozaOrder',
+      'Feoza Order': 'feozaOrder',
       'Ace Duo Order': 'aceDuoOrder',
       'Amenavir Order': 'amenavirOrder',
       'Rx Send In DIDS': 'rxSendInDIDS',
