@@ -108,6 +108,65 @@ export default function Reports() {
     }
   };
 
+  // Mapping field names to human-readable labels
+  const fieldLabels = {
+    // Forecast
+    salesForecast: "Sales Forecast",
+    strategicRxForecast: "Strategic Rx Forecast",
+    focusRxForecast: "Focus Rx Forecast",
+    emergingRxForecast: "Emerging Rx Forecast",
+    newProductRxForecast: "New Product Rx Forecast",
+    opdRxForecast: "OPD Rx Forecast",
+    gpRxForecast: "GP Rx Forecast",
+    dischargeRxForecast: "Discharge Rx Forecast",
+    totalRxForecast: "Total Rx Forecast",
+
+    // Rx Section
+    totalStrategicBasketRx: "Total Strategic Basket Rx",
+    totalFocusBasketRx: "Total Focus Basket Rx",
+    totalEmergingBasketRx: "Total Emerging Basket Rx",
+    totalNewProductRx: "Total New Product Rx",
+
+    totalBasketandNewProductRx: "Total Basket and New Product Rx",
+    opdRx: "OPD Rx",
+    dischargeRx: "Discharge Rx",
+    gpRx: "GP Rx",
+
+    SBUCRxWithoutBasketandNewProductRx: "SBU-C Rx (Without Basket and New product)",
+    totalRxs: "Total Rxs",
+
+    // Order Section
+    SBUCOrderRouteName: "SBUC Order Route Name",
+    noOfPartySBUCOrderRoute: "No of Party SBUC Order Route",
+    noOfCollectedOrderSBUC: "No of Collected Orders SBUC",
+    noOfNotGivingOrderParty: "No of Not Giving Orders Party",
+    causeOfNotGivingOrder: "Cause of Not Giving Orders",
+    marketTotalOrder: "Market Total Order",
+
+    // Strategic Basket
+    NeuroBOrder: "Neuro-B Order",
+    CalboralDDXOrder: "Calboral D/DX Order",
+    ToraxOrder: "Torax Order",
+    AceAceplusOrder: "Ace, Ace plus Order",
+
+    // Focus Basket
+    ZimaxOrder: "Zimax Order",
+    CalboDOrder: "Calbo-D Order",
+    AnadolAnadolplusOrder: "Anadol, Anadol plus Order",
+
+    // Emerging Basket
+    SafyronOrder: "Safyron Order",
+    DBalanceOrder: "D-Balance Order",
+    TezoOrder: "Tezo Order",
+    ContilexContilexTSOrder: "Contilex, Contilex TS Order",
+    MaxrinMaxrinDOrder: "Maxrin, Maxrin D Order",
+
+    // Survey
+    rxSendInDIDS: "Rx Send in DIDS",
+    writtenRxInSurveyPad: "Written Rx in Survey Pad",
+    indoorSurvey: "Indoor Survey",
+  };
+
   // Dynamic table columns
   const dynamicFields = records[0]
     ? Object.keys(records[0]).filter((k) => k !== "_id" && k !== "userId")
@@ -119,11 +178,7 @@ export default function Reports() {
 
   if (records.length > 0) {
     dynamicFields.forEach((f) => {
-      if (
-        records.every(
-          (r) => !isNaN(parseFloat(r[f])) && r[f] !== null && r[f] !== undefined
-        )
-      ) {
+      if (records.every((r) => !isNaN(parseFloat(r[f])) && r[f] !== null && r[f] !== undefined)) {
         numericFields.push(f);
       }
     });
@@ -175,22 +230,13 @@ export default function Reports() {
         </div>
 
         <div className="self-end flex gap-2">
-          <button
-            onClick={fetchReports}
-            className="bg-blue-600 text-white px-4 py-2 rounded"
-          >
+          <button onClick={fetchReports} className="bg-blue-600 text-white px-4 py-2 rounded">
             {loading ? "Loading..." : "View"}
           </button>
-          <button
-            onClick={handleReset}
-            className="bg-yellow-700 text-white px-4 py-2 rounded"
-          >
+          <button onClick={handleReset} className="bg-yellow-700 text-white px-4 py-2 rounded">
             Reset
           </button>
-          <button
-            onClick={exportExcel}
-            className="bg-indigo-600 text-white px-4 py-2 rounded"
-          >
+          <button onClick={exportExcel} className="bg-indigo-600 text-white px-4 py-2 rounded">
             Export Excel
           </button>
         </div>
@@ -203,7 +249,7 @@ export default function Reports() {
               <th className="p-2 text-left">Created At</th>
               {dynamicFields.map((f) => (
                 <th key={f} className="p-2 text-left">
-                  {f}
+                  {fieldLabels[f] || f} {/* Show human-readable label */}
                 </th>
               ))}
             </tr>
@@ -212,9 +258,7 @@ export default function Reports() {
             {records.length > 0 ? (
               records.map((r) => (
                 <tr key={r._id} className="border-t">
-                  <td className="p-2 text-sm">
-                    {new Date(r.createdAt).toLocaleString()}
-                  </td>
+                  <td className="p-2 text-sm">{new Date(r.createdAt).toLocaleString()}</td>
                   {dynamicFields.map((f) => (
                     <td key={f} className="p-2">
                       {r[f] ?? ""}
@@ -224,10 +268,7 @@ export default function Reports() {
               ))
             ) : (
               <tr>
-                <td
-                  colSpan={dynamicFields.length + 1}
-                  className="p-4 text-center text-gray-500"
-                >
+                <td colSpan={dynamicFields.length + 1} className="p-4 text-center text-gray-500">
                   Please filter records
                 </td>
               </tr>

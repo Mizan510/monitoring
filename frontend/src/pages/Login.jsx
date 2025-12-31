@@ -6,9 +6,10 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false); // ✅ Loading state
   const navigate = useNavigate();
 
-  // ✅ Load saved email on first render
+  // Load saved email on first render
   useEffect(() => {
     const savedEmail = localStorage.getItem("rememberEmail");
     const savedRemember = localStorage.getItem("rememberMe") === "true";
@@ -21,6 +22,7 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // ✅ Start loading
     try {
       const res = await api.post("/auth/login", { email, password });
 
@@ -28,7 +30,6 @@ const Login = ({ onLogin }) => {
       setAuthToken(res.data.token);
 
       if (rememberMe) {
-        // ✅ Store token + email
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("rememberMe", "true");
         localStorage.setItem("rememberEmail", email);
@@ -45,6 +46,8 @@ const Login = ({ onLogin }) => {
         err.response?.data?.msg ||
         "Login failed"
       );
+    } finally {
+      setLoading(false); // ✅ Stop loading
     }
   };
 
@@ -71,7 +74,7 @@ const Login = ({ onLogin }) => {
           required
         />
 
-        {/* ✅ Remember Me */}
+        {/* Remember Me */}
         <label className="flex items-center text-sm text-gray-700 gap-2">
           <input
             type="checkbox"
@@ -85,8 +88,9 @@ const Login = ({ onLogin }) => {
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700"
+          disabled={loading} // ✅ Disable while loading
         >
-          Login
+          {loading ? "Logging in..." : "Login"} {/* ✅ Button text */}
         </button>
 
         <p className="text-sm text-gray-700 text-center mt-2">

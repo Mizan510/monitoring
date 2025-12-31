@@ -3,48 +3,63 @@ const mongoose = require("mongoose");
 const recordSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 
-  salesForecast: { type: Number, required: true, default: 0 },
-  calboralDDXRxForecast: { type: Number, required: true, default: 0 },
-  neuroBRxForecast: { type: Number, required: true, default: 0 },
-  zimaxRxForecast: { type: Number, required: true, default: 0 },
-  urologicalRxForecast: { type: Number, required: true, default: 0 },
-  hormoneRxForecast: { type: Number, required: true, default: 0 },
-  torax10RxForecast: { type: Number, required: true, default: 0 },
-  opdRxForecast: { type: Number, required: true, default: 0 },
-  gpRxForecast: { type: Number, required: true, default: 0 },
-  dischargeRxForecast: { type: Number, required: true, default: 0 },
-  totalRxForecast: { type: Number, required: true, default: 0 },
+  // Forecast Section
+  salesForecast: { type: Number, required: true },
+  strategicRxForecast: { type: Number },
+  focusRxForecast: { type: Number },
 
-  calboralDDXRx: { type: Number, required: true, default: 0 },
-  neuroBRx: { type: Number, required: true, default: 0 },
-  zimaxRx: { type: Number, required: true, default: 0 },
-  urologicalRx: { type: Number, required: true, default: 0 },
-  hormonalRx: { type: Number, required: true, default: 0 },
-  aceBrand: { type: Number, required: true, default: 0 },
-  totalStrategicRx: { type: Number, required: true, default: 0 },
-  otherProductsRxSBUC: { type: Number, required: true, default: 0 },
-  totalRxs: { type: Number, required: true, default: 0 },
+  emergingRxForecast: { type: Number }, // corrected line
 
-  opdRx: { type: Number, required: true, default: 0 },
-  dischargeRx: { type: Number, required: true, default: 0 },
-  gpRx: { type: Number, required: true, default: 0 },
+  newProductRxForecast: { type: Number },
+  opdRxForecast: { type: Number },
+  gpRxForecast: { type: Number },
+  dischargeRxForecast: { type: Number },
+  totalRxForecast: { type: Number },
 
-  sbuCOrderRouteName: { type: String, required: true, default: "" },
-  noOfPartySBUCOrderRoute: { type: Number, required: true, default: 0 },
-  noOfCollectedOrderSBUC: { type: Number, required: true, default: 0 },
-  noOfNotGivingOrderParty: { type: Number, required: true, default: 0 },
-  causeOfNotGivingOrder: { type: String, required: true, default: "" },
-  marketTotalOrder: { type: Number, required: true, default: 0 },
-  acetab250Order: { type: Number, required: true, default: 0 },
-  acetab500Order: { type: Number, required: true, default: 0 },
-  torax10TabOrder: { type: Number, required: true, default: 0 },
-  feozaOrder: { type: Number, required: true, default: 0 },
-  aceDuoOrder: { type: Number, required: true, default: 0 },
-  amenavirOrder: { type: Number, required: true, default: 0 },
+  // Rx Section
+  totalStrategicBasketRx: { type: Number },
+  totalFocusBasketRx: { type: Number },
+  totalEmergingBasketRx: { type: Number }, // corrected line
+  totalNewProductRx: { type: Number },
+  totalBasketandNewProductRx: { type: Number },
+  opdRx: { type: Number },
+  dischargeRx: { type: Number },
+  gpRx: { type: Number },
+  SBUCRxWithoutBasketandNewProductRx: { type: Number },
+  totalRxs: { type: Number },
 
-  rxSendInDIDS: { type: Number, required: true, default: 0 },
-  writtenRxInSurveyPad: { type: Number, required: true, default: 0 },
-  indoorSurvey: { type: String, required: true, default: "" },
+    // Order Section
+  SBUCOrderRouteName: { type: String },
+  noOfPartySBUCOrderRoute: { type: Number },
+  noOfCollectedOrderSBUC: { type: Number },
+  noOfNotGivingOrderParty: { type: Number },
+  causeOfNotGivingOrder: { type: String },
+  marketTotalOrder: { type: Number },
+
+  //Strategic Basket Orders
+  NeuroBOrder: { type: Number }, // corrected line
+  CalboralDDXOrder: { type: Number }, // corrected line
+  ToraxOrder: { type: Number }, // corrected line
+  AceAceplusOrder: { type: Number }, // corrected line
+
+  //Focus Basket Orders
+  ZimaxOrder: { type: Number }, // corrected line
+  CalboDOrder: { type: Number }, // corrected line
+  AnadolAnadolplusOrder: { type: Number }, // corrected line
+
+  //Emerging Basket Orders
+  SafyronOrder: { type: Number }, // corrected line
+  DBalanceOrder: { type: Number }, // corrected line
+  TezoOrder: { type: Number }, // corrected line
+  ContilexContilexTSOrder: { type: Number }, // corrected line
+  MaxrinMaxrinDOrder: { type: Number }, // corrected line
+
+  newProductOrder: { type: Number },
+
+  // Survey Section
+  rxSendInDIDS: { type: Number },
+  writtenRxInSurveyPad: { type: Number },
+  indoorSurvey: { type: String },
 
   createdAt: { type: Date, default: Date.now },
 });

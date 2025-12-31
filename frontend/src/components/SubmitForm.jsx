@@ -3,195 +3,77 @@ import { useForm } from "react-hook-form";
 import api from "../api/api";
 
 const FIELD_GROUPS = [
+  // ================= Forecast =================
   [
-    {
-      name: "salesForecast",
-      label: "Sales Forecast",
-      type: "number",
-      placeholder: "Sales Forecast",
-    },
-    {
-      name: "calboralDDXRxForecast",
-      label: "Calboral-D/DX Rx forecast",
-      type: "number",
-      placeholder: "Calboral-D/DX Rx forecast",
-    },
-    {
-      name: "neuroBRxForecast",
-      label: "Neuro-B Rx forecast",
-      type: "number",
-      placeholder: "Neuro-B Rx forecast",
-    },
-    {
-      name: "zimaxRxForecast",
-      label: "Zimax Rx forecast",
-      type: "number",
-      placeholder: "Zimax Rx forecast",
-    },
-    {
-      name: "urologicalRxForecast",
-      label: "Urological Rx forecast",
-      type: "number",
-      placeholder: "Urological Rx forecast",
-    },
-    {
-      name: "hormoneRxForecast",
-      label: "Hormone Rx forecast",
-      type: "number",
-      placeholder: "Hormone Rx forecast",
-    },
-    {
-      name: "torax10RxForecast",
-      label: "Torax 10 RxForecast",
-      type: "number",
-      placeholder: "Torax 10 RxForecast",
-    },
-    {
-      name: "opdRxForecast",
-      label: "OPD Rx forecast",
-      type: "number",
-      placeholder: "OPD Rx forecast",
-    },
-    {
-      name: "gpRxForecast",
-      label: "GP Rx forecast",
-      type: "number",
-      placeholder: "GP Rx forecast",
-    },
-    {
-      name: "dischargeRxForecast",
-      label: "Discharge Rx forecast",
-      type: "number",
-      placeholder: "Discharge Rx forecast",
-    },
-    {
-      name: "totalRxForecast",
-      label: "Total Rx forecast",
-      type: "number",
-      placeholder: "Total Rx forecast",
-      readOnly: true,
-    },
+    { name: "salesForecast", label: "Sales Forecast", type: "number" },
+    { name: "strategicRxForecast", label: "Strategic Rx Forecast", type: "number" },
+    { name: "focusRxForecast", label: "Focus Rx Forecast", type: "number" },
+    { name: "emergingRxForecast", label: "Emerging Rx Forecast", type: "number" },
+    { name: "newProductRxForecast", label: "New Product Rx Forecast", type: "number" },
+    { name: "opdRxForecast", label: "OPD Rx Forecast", type: "number" },
+    { name: "gpRxForecast", label: "GP Rx Forecast", type: "number" },
+    { name: "dischargeRxForecast", label: "Discharge Rx Forecast", type: "number" },
+    { name: "totalRxForecast", label: "Total Rx Forecast", type: "number" },
   ],
+
+  // ================= Rx Summary =================
   [
-    {
-      name: "calboralDDXRx",
-      label: "Calboral-D/DX Rx",
-      type: "number",
-      placeholder: "Calboral-D/DX Rx",
-    },
-    { name: "neuroBRx", label: "Neuro-B Rx", type: "number", placeholder: "Neuro-B Rx" },
-    { name: "zimaxRx", label: "Zimax Rx", type: "number", placeholder: "Zimax Rx" },
-    { name: "urologicalRx", label: "Urological Rx", type: "number", placeholder: "Urological Rx" },
-    { name: "hormonalRx", label: "Hormonal Rx", type: "number", placeholder: "Hormonal Rx" },
-    { name: "aceBrand", label: "Ace Brand", type: "number", placeholder: "Ace Brand" },
-    {
-      name: "totalStrategicRx",
-      label: "Total Strategic Rx",
-      type: "number",
-      placeholder: "Total Strategic Rx",
-      readOnly: true,
-    },
-    {
-      name: "otherProductsRxSBUC",
-      label: "Other Products Rx of SBU-C",
-      type: "number",
-      placeholder: "Other Products Rx of SBU-C",
-      readOnly: true,
-    },
-    {
-      name: "totalRxs",
-      label: "Total Rxs",
-      type: "number",
-      placeholder: "Total Rxs",
-      readOnly: true,
-    },
+    { name: "totalStrategicBasketRx", label: "Total Strategic Basket Rx", type: "number" },
+    { name: "totalFocusBasketRx", label: "Total Focus Basket Rx", type: "number" },
+    { name: "totalEmergingBasketRx", label: "Total Emerging Basket Rx", type: "number" },
+    { name: "totalNewProductRx", label: "Total New Product Rx", type: "number" },
+    { name: "totalBasketandNewProductRx", label: "Total Basket and New Product Rx", type: "number" },
+
+    { name: "opdRx", label: "OPD Rx", type: "number" },
+    { name: "dischargeRx", label: "Discharge Rx", type: "number" },
+    { name: "gpRx", label: "GP Rx", type: "number" },
+    { name: "SBUCRxWithoutBasketandNewProductRx", label: "SBU-C Rx (Without Basket and New product)", type: "number", readOnly: true },
+    { name: "totalRxs", label: "Total Rxs", type: "number", readOnly: true },
+  
   ],
+
+  // ================= Orders =================
   [
-    { name: "opdRx", label: "OPD Rx", type: "number", placeholder: "OPD Rx" },
-    { name: "dischargeRx", label: "Discharge Rx", type: "number", placeholder: "Discharge Rx" },
-    { name: "gpRx", label: "GP Rx", type: "number", placeholder: "GP Rx" },
+    { name: "SBUCOrderRouteName", label: "SBU-C Order Route Name", type: "text" },
+    { name: "noOfPartySBUCOrderRoute", label: "No. of Party", type: "number" },
+    { name: "noOfCollectedOrderSBUC", label: "Collected Orders", type: "number" },
+    { name: "noOfNotGivingOrderParty", label: "Not Giving Order", type: "number", readOnly: true },
+    { name: "causeOfNotGivingOrder", label: "Cause of Not Giving Order", type: "text" },
+    { name: "marketTotalOrder", label: "Market Total Order", type: "number" },
   ],
+
+  // ================= Strategic Basket =================
   [
-    {
-      name: "sbuCOrderRouteName",
-      label: "SBU-C Order Route Name",
-      type: "text",
-      placeholder: "SBU-C Order Route Name",
-    },
-    {
-      name: "noOfPartySBUCOrderRoute",
-      label: "No# of party in SBU-C Order Route",
-      type: "number",
-      placeholder: "No# of party in SBU-C Order Route",
-    },
-    {
-      name: "noOfCollectedOrderSBUC",
-      label: "No# of Collected order by SBU-C",
-      type: "number",
-      placeholder: "No# of Collected order by SBU-C",
-    },
-    {
-      name: "noOfNotGivingOrderParty",
-      label: "No# of Not giving order party",
-      type: "number",
-      placeholder: "No# of Not giving order party",
-      readOnly: true,
-    },
-    {
-      name: "causeOfNotGivingOrder",
-      label: "Cause of Not giving order",
-      type: "text",
-      placeholder: "Cause of Not giving order",
-    },
-    {
-      name: "marketTotalOrder",
-      label: "Market Total Order (All SBU)",
-      type: "number",
-      placeholder: "Market Total Order (All SBU)",
-    },
-    {
-      name: "acetab250Order",
-      label: "AceTab (250's) Order",
-      type: "number",
-      placeholder: "AceTab (250's) Order",
-    },
-    {
-      name: "acetab500Order",
-      label: "AceTab (500's) Order",
-      type: "number",
-      placeholder: "AceTab (500's) Order",
-    },
-    {
-      name: "torax10TabOrder",
-      label: "Torax 10 TabOrder",
-      type: "number",
-      placeholder: "Torax 10 TabOrder",
-    },
-    { name: "feozaOrder", label: "Feoza Order", type: "number", placeholder: "Feoza Order" },
-    { name: "aceDuoOrder", label: "Ace Duo Order", type: "number", placeholder: "Ace Duo Order" },
-    {
-      name: "amenavirOrder",
-      label: "Amenavir Order",
-      type: "number",
-      placeholder: "Amenavir Order",
-    },
+    { name: "NeuroBOrder", label: "Neuro B Order", type: "number" },
+    { name: "CalboralDDXOrder", label: "Calboral D/DX Order", type: "number" },
+    { name: "ToraxOrder", label: "Torax Order", type: "number" },
+    { name: "AceAceplusOrder", label: "Ace / Ace Plus Order", type: "number" },
   ],
+
+  // ================= Focus Basket =================
   [
-    {
-      name: "rxSendInDIDS",
-      label: "Rx send in DIDS",
-      type: "number",
-      placeholder: "Rx send in DIDS",
-    },
-    {
-      name: "writtenRxInSurveyPad",
-      label: "Written Rx in Survey Pad",
-      type: "number",
-      placeholder: "Written Rx in Survey Pad",
-    },
-    { name: "indoorSurvey", label: "Indoor survey", type: "text", placeholder: "Indoor survey" },
+    { name: "ZimaxOrder", label: "Zimax Order", type: "number" },
+    { name: "CalboDOrder", label: "Calbo D Order", type: "number" },
+    { name: "AnadolAnadolplusOrder", label: "Anadol / Anadol Plus Order", type: "number" },
+  ],
+
+  // ================= Emerging Basket =================
+  [
+    { name: "SafyronOrder", label: "Safyron Order", type: "number" },
+    { name: "DBalanceOrder", label: "D-Balance Order", type: "number" },
+    { name: "TezoOrder", label: "Tezo Order", type: "number" },
+    { name: "ContilexContilexTSOrder", label: "Contilex / Contilex TS Order", type: "number" },
+    { name: "MaxrinMaxrinDOrder", label: "Maxrin / Maxrin D Order", type: "number" },
+  ],
+
+  // ================= Survey =================
+  [
+    { name: "rxSendInDIDS", label: "Rx Send in DIDS", type: "number" },
+    { name: "writtenRxInSurveyPad", label: "Written Rx in Survey Pad", type: "number" },
+    { name: "indoorSurvey", label: "Indoor Survey", type: "text" },
   ],
 ];
+
 
 export default function SubmitForm() {
   const [alreadySubmitted, setAlreadySubmitted] = useState(false);
@@ -225,29 +107,39 @@ export default function SubmitForm() {
 
   // ✅ Calculate totals dynamically
   useEffect(() => {
-    const getNumber = (name) => Math.max(Number(watchedValues[name] || 0), 0);
-    const totalRxForecast =
-      getNumber("opdRxForecast") + getNumber("gpRxForecast") + getNumber("dischargeRxForecast");
-    const totalStrategicRx =
-      getNumber("calboralDDXRx") +
-      getNumber("neuroBRx") +
-      getNumber("zimaxRx") +
-      getNumber("urologicalRx") +
-      getNumber("hormonalRx") +
-      getNumber("aceBrand");
-    const totalRxs = getNumber("opdRx") + getNumber("dischargeRx") + getNumber("gpRx");
-    const otherProducts = Math.max(totalRxs - totalStrategicRx, 0);
-    const noOfNotGivingOrderParty = Math.max(
-      getNumber("noOfPartySBUCOrderRoute") - getNumber("noOfCollectedOrderSBUC"),
-      0
-    );
+  const getNumber = (name) => Math.max(Number(watchedValues[name] || 0), 0);
 
-    setValue("totalRxForecast", totalRxForecast);
-    setValue("totalStrategicRx", totalStrategicRx);
-    setValue("totalRxs", totalRxs);
-    setValue("otherProductsRxSBUC", otherProducts);
-    setValue("noOfNotGivingOrderParty", noOfNotGivingOrderParty);
-  }, [watchedValues, setValue]);
+  // Forecast totals
+  const totalRxForecast =
+    getNumber("opdRxForecast") + getNumber("gpRxForecast") + getNumber("dischargeRxForecast");
+
+  // Basket & New Product total
+  const TotaBasketandNewProductRx =
+    getNumber("totalStrategicBasketRx") +
+    getNumber("totalFocusBasketRx") +
+    getNumber("totalEmergingBasketRx") +
+    getNumber("totalNewProductRx");
+
+  // Total Rx
+  const totalRxs = getNumber("opdRx") + getNumber("dischargeRx") + getNumber("gpRx");
+
+  // ✅ Correct calculation
+  const SBUCRxWithoutBasketandNewProductRx = Math.max(totalRxs - TotaBasketandNewProductRx, 0);
+
+  // Orders
+  const noOfNotGivingOrderParty = Math.max(
+    getNumber("noOfPartySBUCOrderRoute") - getNumber("noOfCollectedOrderSBUC"),
+    0
+  );
+
+  // Set values in form
+  setValue("totalRxForecast", totalRxForecast);
+  setValue("totalBasketandNewProductRx", TotaBasketandNewProductRx);
+  setValue("totalRxs", totalRxs);
+  setValue("SBUCRxWithoutBasketandNewProductRx", SBUCRxWithoutBasketandNewProductRx);
+  setValue("noOfNotGivingOrderParty", noOfNotGivingOrderParty);
+}, [watchedValues, setValue]);
+
 
   // ✅ Handle Submit
   const onSubmit = async (data) => {
@@ -295,8 +187,10 @@ export default function SubmitForm() {
               const sectionTitles = [
                 "Forecast Section (Todays Forecast)",
                 "Rx Section (Yesterday no. of Rx)",
-                "Hospital Rx",
                 "Order Section",
+                "Strategic Basket Order",
+                "Focus Basket Order",
+                "Emerging Basket Order",
                 "Survey Section",
               ];
               return (
