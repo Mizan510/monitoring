@@ -39,13 +39,9 @@ const Login = ({ onLogin }) => {
         localStorage.removeItem("rememberEmail");
       }
 
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     } catch (err) {
-      alert(
-        err.response?.data?.errors?.[0]?.msg ||
-        err.response?.data?.msg ||
-        "Login failed"
-      );
+      alert(err.response?.data?.errors?.[0]?.msg || err.response?.data?.msg || "Login failed");
     } finally {
       setLoading(false); // ✅ Stop loading
     }
@@ -87,10 +83,36 @@ const Login = ({ onLogin }) => {
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700"
-          disabled={loading} // ✅ Disable while loading
+          className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700 flex items-center justify-center gap-2"
+          disabled={loading}
         >
-          {loading ? "Logging in..." : "Login"} {/* ✅ Button text */}
+          {loading ? (
+            <>
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                />
+              </svg>
+              <span>Logging in...</span>
+            </>
+          ) : (
+            "Login"
+          )}
         </button>
 
         <p className="text-sm text-gray-700 text-center mt-2">

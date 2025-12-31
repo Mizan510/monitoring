@@ -2,9 +2,49 @@ import React, { useEffect, useState } from "react";
 import SubmitForm from "../components/SubmitForm";
 import Reports from "../components/Reports";
 import api, { setAuthToken } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
+// =================== Auto Logout Hook ===================
+function useAutoLogout(onLogout, timeout = 3 * 60 * 1000) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let timer;
+
+    const resetTimer = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        // Clear auth and redirect
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
+        setAuthToken(null);
+        if (onLogout) onLogout();
+        navigate("/login", { replace: true });
+      }, timeout);
+    };
+
+    // Reset timer on activity
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+    window.addEventListener("click", resetTimer);
+
+    resetTimer(); // start timer initially
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("mousemove", resetTimer);
+      window.removeEventListener("keydown", resetTimer);
+      window.removeEventListener("click", resetTimer);
+    };
+  }, [navigate, onLogout, timeout]);
+}
+
+// =================== Dashboard Component ===================
 const Dashboard = ({ onLogout }) => {
   const [user, setUser] = useState(null);
+
+  // Apply auto logout
+  useAutoLogout(onLogout, 3 * 60 * 1000); // 5 minutes
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -48,6 +88,7 @@ const Dashboard = ({ onLogout }) => {
             className="text-blue-600 hover:underline"
             onClick={() => {
               localStorage.removeItem("token");
+              sessionStorage.removeItem("token");
               setAuthToken(null);
               onLogout();
             }}
@@ -58,16 +99,13 @@ const Dashboard = ({ onLogout }) => {
 
         {/* Conditional Sections */}
         {role === "admin" ? (
-          // ✅ Admin: Reports only
           <Reports />
         ) : (
-          // ✅ User: Both SubmitForm and Reports
           <>
             <div className="mb-6">
               <SubmitForm />
             </div>
-            <Reports/>
-
+            <Reports />
           </>
         )}
       </div>
