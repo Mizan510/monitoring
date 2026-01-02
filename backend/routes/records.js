@@ -70,6 +70,11 @@ router.post("/", authMiddleware, async (req, res) => {
       "ContilexContilexTSOrder",
       "MaxrinMaxrinDOrder",
 
+      // New Product Orders
+      "FeozaOrder",
+      "AceDuoOrder",
+      "AmenavirOrder",
+
       // Survey
       "rxSendInDIDS",
       "writtenRxInSurveyPad",
@@ -293,6 +298,17 @@ router.get("/export", authMiddleware, async (req, res) => {
         color: "FFE5CCFF",
       },
 
+      // New Product Orders
+      {
+        name: "New Product Orders",
+        fields: [
+          "Feoza Order",
+          "Ace Duo Order",
+          "Amenavir Order",
+        ],
+        color: "FFFFE0B3",
+      },
+
       // Survey Section
       {
         name: "Survey",
@@ -331,7 +347,8 @@ router.get("/export", authMiddleware, async (req, res) => {
       "OPD Rx": "opdRx",
       "Discharge Rx": "dischargeRx",
       "GP Rx": "gpRx",
-      "SBU-C Rx (Without Basket and New product)": "SBUCRxWithoutBasketandNewProductRx",
+      "SBU-C Rx (Without Basket and New product)":
+        "SBUCRxWithoutBasketandNewProductRx",
       "Total Rxs": "totalRxs",
 
       // Orders
@@ -359,6 +376,11 @@ router.get("/export", authMiddleware, async (req, res) => {
       "Tezo Order": "TezoOrder",
       "Contilex / Contilex TS Order": "ContilexContilexTSOrder",
       "Maxrin / Maxrin D Order": "MaxrinMaxrinDOrder",
+
+      // New Product Orders
+      "Feoza Order": "FeozaOrder",
+      "Ace Duo Order": "AceDuoOrder",
+      "Amenavir Order": "AmenavirOrder",
 
       // Survey
       "Rx Send In DIDS": "rxSendInDIDS",

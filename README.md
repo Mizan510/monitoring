@@ -1,3 +1,12 @@
+# For addition and deletion any field..
+update backend side
+model/Record.js
+routes/records.js
+
+update frontend side
+frontend/src/components/SubmitForm.jsx
+frontend/src/components/Reports.jsx
+
 # if not already a git repo
 git init
 git add .

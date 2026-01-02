@@ -23,10 +23,7 @@ const FIELD_GROUPS = [
     { name: "totalEmergingBasketRx", label: "Total Emerging Basket Rx", type: "number" },
     { name: "totalNewProductRx", label: "Total New Product Rx", type: "number" },
     {
-      name: "totalBasketandNewProductRx",
-      label: "Total Basket and New Product Rx",
-      type: "number",
-      readOnly: true,
+      name: "totalBasketandNewProductRx", label: "Total Basket and New Product Rx", type: "number", readOnly: true,
     },
 
     { name: "opdRx", label: "OPD Rx", type: "number" },
@@ -73,6 +70,13 @@ const FIELD_GROUPS = [
     { name: "TezoOrder", label: "Tezo Order", type: "number" },
     { name: "ContilexContilexTSOrder", label: "Contilex / Contilex TS Order", type: "number" },
     { name: "MaxrinMaxrinDOrder", label: "Maxrin / Maxrin D Order", type: "number" },
+  ],
+
+   // ================= New Product =================
+  [
+    { name: "FeozaOrder", label: "Feoza Order", type: "number" },
+    { name: "AceDuoOrder", label: "Ace Duo Order", type: "number" },
+    { name: "AmenavirOrder", label: "Amenavir Order", type: "number" },
   ],
 
   // ================= Survey =================
@@ -198,6 +202,7 @@ export default function SubmitForm() {
                 "Strategic Basket Order",
                 "Focus Basket Order",
                 "Emerging Basket Order",
+                "New Product Order",
                 "Survey Section",
               ];
               return (

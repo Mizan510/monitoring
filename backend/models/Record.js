@@ -28,7 +28,7 @@ const recordSchema = new mongoose.Schema({
   SBUCRxWithoutBasketandNewProductRx: { type: Number },
   totalRxs: { type: Number },
 
-    // Order Section
+  // Order Section
   SBUCOrderRouteName: { type: String },
   noOfPartySBUCOrderRoute: { type: Number },
   noOfCollectedOrderSBUC: { type: Number },
@@ -54,7 +54,10 @@ const recordSchema = new mongoose.Schema({
   ContilexContilexTSOrder: { type: Number }, // corrected line
   MaxrinMaxrinDOrder: { type: Number }, // corrected line
 
-  newProductOrder: { type: Number },
+  // New Product Orders
+  FeozaOrder: { type: Number }, // corrected line
+  AceDuoOrder: { type: Number }, // corrected line
+  AmenavirOrder: { type: Number }, // corrected line
 
   // Survey Section
   rxSendInDIDS: { type: Number },

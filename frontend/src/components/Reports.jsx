@@ -161,6 +161,11 @@ export default function Reports() {
     ContilexContilexTSOrder: "Contilex, Contilex TS Order",
     MaxrinMaxrinDOrder: "Maxrin, Maxrin D Order",
 
+    // New Product Orders
+    FeozaOrder: "Feoza Order",
+    AceDuoOrder: "Ace Duo Order",
+    AmenavirOrder: "Amenavir Order",
+
     // Survey
     rxSendInDIDS: "Rx Send in DIDS",
     writtenRxInSurveyPad: "Written Rx in Survey Pad",
