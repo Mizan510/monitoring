@@ -18,20 +18,42 @@ const FIELD_GROUPS = [
 
   // ================= Rx Summary =================
   [
-    { name: "totalStrategicBasketRx", label: "Total Strategic Basket Rx", type: "number" },
-    { name: "totalFocusBasketRx", label: "Total Focus Basket Rx", type: "number" },
-    { name: "totalEmergingBasketRx", label: "Total Emerging Basket Rx", type: "number" },
-    { name: "totalNewProductRx", label: "Total New Product Rx", type: "number" },
+    { name: "aceAcePlusRx", label: "Ace / Ace Plus Rx", type: "number" },
+    { name: "toraxRx", label: "Torax Rx", type: "number" },
+    { name: "calboralDDXRx", label: "Calboral D/DX Rx", type: "number" },
+    { name: "neuroBRx", label: "Neuro B Rx", type: "number" },
     {
-      name: "totalBasketandNewProductRx", label: "Total Basket and New Product Rx", type: "number", readOnly: true,
+      name: "totalStrategicBasketRx",
+      label: "Total Strategic Basket Rx",
+      type: "number",
+      readOnly: true,
     },
+
+    { name: "zimaxRx", label: "Zimax Rx", type: "number" },
+    { name: "calboDRx", label: "Calbo D Rx", type: "number" },
+    { name: "anadolAnadolPlusRx", label: "Anadol / Anadol Plus Rx", type: "number" },
+    { name: "totalFocusBasketRx", label: "Total Focus Basket Rx", type: "number", readOnly: true },
+
+    { name: "tezoRx", label: "Tezo Rx", type: "number" },
+    { name: "safyronRx", label: "Safyron Rx", type: "number" },
+    { name: "maxrinMaxrinDRx", label: "Maxrin / Maxrin D Rx", type: "number" },
+    { name: "contilexContilexTSRx", label: "Contilex / Contilex TS Rx", type: "number" },
+    { name: "dBalanceRx", label: "D-Balance Rx", type: "number" },
+    {
+      name: "totalEmergingBasketRx",
+      label: "Total Emerging Basket Rx",
+      type: "number",
+      readOnly: true,
+    },
+
+    { name: "totalBasketRx", label: "Total Basket Rx", type: "number", readOnly: true },
 
     { name: "opdRx", label: "OPD Rx", type: "number" },
     { name: "dischargeRx", label: "Discharge Rx", type: "number" },
     { name: "gpRx", label: "GP Rx", type: "number" },
     {
       name: "SBUCRxWithoutBasketandNewProductRx",
-      label: "SBU-C Rx (Without Basket and New product)",
+      label: "SBU-C Rx (Without Basket)",
       type: "number",
       readOnly: true,
     },
@@ -72,7 +94,7 @@ const FIELD_GROUPS = [
     { name: "MaxrinMaxrinDOrder", label: "Maxrin / Maxrin D Order", type: "number" },
   ],
 
-   // ================= New Product =================
+  // ================= New Product =================
   [
     { name: "FeozaOrder", label: "Feoza Order", type: "number" },
     { name: "AceDuoOrder", label: "Ace Duo Order", type: "number" },
@@ -125,18 +147,34 @@ export default function SubmitForm() {
     const totalRxForecast =
       getNumber("opdRxForecast") + getNumber("gpRxForecast") + getNumber("dischargeRxForecast");
 
-    // Basket & New Product total
-    const TotaBasketandNewProductRx =
-      getNumber("totalStrategicBasketRx") +
-      getNumber("totalFocusBasketRx") +
-      getNumber("totalEmergingBasketRx") +
-      getNumber("totalNewProductRx");
+    // ========== Basket Calculations ==========
+    // Total Strategic Basket Rx = Ace/Ace Plus Rx + Torax Rx + Calboral D/DX Rx + Neuro B Rx
+    const totalStrategicBasketRx =
+      getNumber("aceAcePlusRx") +
+      getNumber("toraxRx") +
+      getNumber("calboralDDXRx") +
+      getNumber("neuroBRx");
+
+    // Total Focus Basket Rx = Zimax Rx + Calbo D Rx + Anadol/Anadol Plus Rx
+    const totalFocusBasketRx =
+      getNumber("zimaxRx") + getNumber("calboDRx") + getNumber("anadolAnadolPlusRx");
+
+    // Total Emerging Basket Rx = Tezo Rx + Safyron Rx + Maxrin/Maxrin D Rx + Contilex/Contilex TS Rx + D-Balance Rx
+    const totalEmergingBasketRx =
+      getNumber("tezoRx") +
+      getNumber("safyronRx") +
+      getNumber("maxrinMaxrinDRx") +
+      getNumber("contilexContilexTSRx") +
+      getNumber("dBalanceRx");
+
+    // Total Basket Rx = Total Strategic Basket Rx + Total Focus Basket Rx + Total Emerging Basket Rx
+    const totalBasketRx = totalStrategicBasketRx + totalFocusBasketRx + totalEmergingBasketRx;
 
     // Total Rx
     const totalRxs = getNumber("opdRx") + getNumber("dischargeRx") + getNumber("gpRx");
 
-    // ✅ Correct calculation
-    const SBUCRxWithoutBasketandNewProductRx = Math.max(totalRxs - TotaBasketandNewProductRx, 0);
+    // SBU-C Rx Without Basket
+    const SBUCRxWithoutBasketandNewProductRx = Math.max(totalRxs - totalBasketRx, 0);
 
     // Orders
     const noOfNotGivingOrderParty = Math.max(
@@ -146,7 +184,10 @@ export default function SubmitForm() {
 
     // Set values in form
     setValue("totalRxForecast", totalRxForecast);
-    setValue("totalBasketandNewProductRx", TotaBasketandNewProductRx);
+    setValue("totalStrategicBasketRx", totalStrategicBasketRx);
+    setValue("totalFocusBasketRx", totalFocusBasketRx);
+    setValue("totalEmergingBasketRx", totalEmergingBasketRx);
+    setValue("totalBasketRx", totalBasketRx);
     setValue("totalRxs", totalRxs);
     setValue("SBUCRxWithoutBasketandNewProductRx", SBUCRxWithoutBasketandNewProductRx);
     setValue("noOfNotGivingOrderParty", noOfNotGivingOrderParty);

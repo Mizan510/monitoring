@@ -122,17 +122,27 @@ export default function Reports() {
     totalRxForecast: "Total Rx Forecast",
 
     // Rx Section
+    aceAcePlusRx: "Ace, Ace plus Rx",
+    toraxRx: "Torax Rx",
+    calboralDDXRx: "Calboral D/DX Rx",
+    neuroBRx: "Neuro-B Rx",
     totalStrategicBasketRx: "Total Strategic Basket Rx",
+    zimaxRx: "Zimax Rx",
+    calboDRx: "Calbo-D Rx",
+    anadolAnadolPlusRx: "Anadol, Anadol plus Rx",
     totalFocusBasketRx: "Total Focus Basket Rx",
+    tezoRx: "Tezo Rx",
+    safyronRx: "Safyron Rx",
+    maxrinMaxrinDRx: "Maxrin, Maxrin D Rx",
+    contilexContilexTSRx: "Contilex, Contilex TS Rx",
+    dBalanceRx: "D-Balance Rx",
     totalEmergingBasketRx: "Total Emerging Basket Rx",
-    totalNewProductRx: "Total New Product Rx",
-
-    totalBasketandNewProductRx: "Total Basket and New Product Rx",
+    totalBasketRx: "Total Basket Rx",
     opdRx: "OPD Rx",
     dischargeRx: "Discharge Rx",
     gpRx: "GP Rx",
 
-    SBUCRxWithoutBasketandNewProductRx: "SBU-C Rx (Without Basket and New product)",
+    SBUCRxWithoutBasketandNewProductRx: "SBU-C Rx (Without Basket)",
     totalRxs: "Total Rxs",
 
     // Order Section

@@ -16,15 +16,36 @@ const recordSchema = new mongoose.Schema({
   dischargeRxForecast: { type: Number },
   totalRxForecast: { type: Number },
 
-  // Rx Section
+  // ================= Rx Section =================
+
+  // Strategic Basket
+  aceAcePlusRx: { type: Number },
+  toraxRx: { type: Number },
+  calboralDDXRx: { type: Number },
+  neuroBRx: { type: Number },
   totalStrategicBasketRx: { type: Number },
+
+  // Focus Basket
+  zimaxRx: { type: Number },
+  calboDRx: { type: Number },
+  anadolAnadolPlusRx: { type: Number },
   totalFocusBasketRx: { type: Number },
-  totalEmergingBasketRx: { type: Number }, // corrected line
-  totalNewProductRx: { type: Number },
-  totalBasketandNewProductRx: { type: Number },
+
+  // Emerging Basket
+  tezoRx: { type: Number },
+  safyronRx: { type: Number },
+  maxrinMaxrinDRx: { type: Number },
+  contilexContilexTSRx: { type: Number },
+  dBalanceRx: { type: Number },
+  totalEmergingBasketRx: { type: Number },
+
+  // Total Basket Summary
+  totalBasketRx: { type: Number },
+
   opdRx: { type: Number },
   dischargeRx: { type: Number },
   gpRx: { type: Number },
+
   SBUCRxWithoutBasketandNewProductRx: { type: Number },
   totalRxs: { type: Number },
 
