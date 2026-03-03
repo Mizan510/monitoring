@@ -55,6 +55,28 @@ router.post("/", authMiddleware, async (req, res) => {
       "SBUCRxWithoutBasketandNewProductRx",
       "totalRxs",
 
+      //Top 20 Products
+      "acePlusRx",
+      "aceSyp100mlRx",
+      "aceSyp60mlMangoRx",
+      "aceSyp60mlOrangeRx",
+      "aceXRRx",
+      "b50ForteCapRx",
+      "calbo500Rx",
+      "calboDRxProduct",
+      "calboralDRx",
+      "calboralDXRx",
+      "contilexTSRxProduct",
+      "neuroBRxProduct",
+      "safyronRxProduct",
+      "specbac1gRx",
+      "ucol2Rx",
+      "viodinMWashRx",
+      "viodin10Soln100mlRx",
+      "viodin10Soln15mlRx",
+      "zimax500Rx",
+      "zimaxPFS30mlRx",
+
       // Order Section
       "SBUCOrderRouteName",
       "noOfPartySBUCOrderRoute",
@@ -274,6 +296,34 @@ router.get("/export", authMiddleware, async (req, res) => {
         color: "FFCCFFCC",
       },
 
+      // Top 20 Products Section
+      {
+        name: "Top 20 Products",
+        fields: [
+          "Ace Plus Rx",
+          "Ace Syp 100ml Rx",
+          "Ace Syp 60ml Mango Rx",
+          "Ace Syp 60ml Orange Rx",
+          "Ace XR Rx",
+          "B50 Forte Cap Rx",
+          "Calbo 500 Rx",
+          "Calbo D Rx Product",
+          "Calboral D Rx",
+          "Calboral DX Rx",
+          "Contilex TS Rx Product",
+          "Neuro B Rx Product",
+          "Safyron Rx Product",
+          "Specbac 1g Rx",
+          "Ucol 2 Rx",
+          "Viodin M Wash Rx",
+          "Viodin 10 Soln 100ml Rx",
+          "Viodin 10 Soln 15ml Rx",
+          "Zimax 500 Rx",
+          "Zimax PFS 30ml Rx"
+        ],
+        color: "FFFFE599"
+      },
+
       // Order Section
       {
         name: "Orders",
@@ -378,6 +428,29 @@ router.get("/export", authMiddleware, async (req, res) => {
       "GP Rx": "gpRx",
       "SBU-C Rx (Without Basket)": "SBUCRxWithoutBasketandNewProductRx",
       "Total Rxs": "totalRxs",
+
+      // Top 20 Products
+      "Ace Plus Rx": "acePlusRx",
+      "Ace Syp 100ml Rx": "aceSyp100mlRx",
+      "Ace Syp 60ml Mango Rx": "aceSyp60mlMangoRx",
+      "Ace Syp 60ml Orange Rx": "aceSyp60mlOrangeRx",
+      "Ace XR Rx": "aceXRRx",
+      "B50 Forte Cap Rx": "b50ForteCapRx",
+      "Calbo 500 Rx": "calbo500Rx",
+      "Calbo D Rx Product": "calboDRxProduct",
+      "Calboral D Rx": "calboralDRx",
+      "Calboral DX Rx": "calboralDXRx",
+      "Contilex TS Rx Product": "contilexTSRxProduct",
+      "Neuro B Rx Product": "neuroBRxProduct",  
+      "Safyron Rx Product": "safyronRxProduct",
+      "Specbac 1g Rx": "specbac1gRx",
+      "Ucol 2 Rx": "ucol2Rx",
+      "Viodin M Wash Rx": "viodinMWashRx",  
+      "Viodin 10 Soln 100ml Rx": "viodin10Soln100mlRx",
+      "Viodin 10 Soln 15ml Rx": "viodin10Soln15mlRx",
+      "Zimax 500 Rx": "zimax500Rx",
+      "Zimax PFS 30ml Rx": "zimaxPFS30mlRx",
+      
 
       // Orders
       "SBU C Order Route Name": "SBUCOrderRouteName",
@@ -488,7 +561,7 @@ router.get("/export", authMiddleware, async (req, res) => {
           "SBUCOrderRouteName",
           "causeOfNotGivingOrder",
           "indoorSurvey",
-        ].includes(f)
+        ].includes(f),
     );
 
     const totals = {};
@@ -561,11 +634,11 @@ router.get("/export", authMiddleware, async (req, res) => {
 
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename=Report_${userId || "all"}_${Date.now()}.xlsx`
+      `attachment; filename=Report_${userId || "all"}_${Date.now()}.xlsx`,
     );
     res.setHeader(
       "Content-Type",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     );
     await workbook.xlsx.write(res);
     res.end();

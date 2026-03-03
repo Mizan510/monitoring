@@ -60,6 +60,29 @@ const FIELD_GROUPS = [
     { name: "totalRxs", label: "Total Rxs", type: "number", readOnly: true },
   ],
 
+  // ================ Top 20 Products ================
+  [
+    { name: "acePlusRx", label: "Ace Plus Rx", type: "number" },
+    { name: "aceSyp100mlRx", label: "Ace Syp 100ml Rx", type: "number" },
+    { name: "aceSyp60mlMangoRx", label: "Ace Syp 60ml Mango Rx", type: "number" },
+    { name: "aceSyp60mlOrangeRx", label: "Ace Syp 60ml Orange Rx", type: "number" },
+    { name: "aceXRRx", label: "Ace XR Rx", type: "number" },
+    { name: "b50ForteCapRx", label: "B50 Forte Cap Rx", type: "number" },
+    { name: "calbo500Rx", label: "Calbo 500 Rx", type: "number" },
+    { name: "calboDRxProduct", label: "Calbo D Rx Product", type: "number" },
+    { name: "calboralDRx", label: "Calboral D Rx", type: "number" },
+    { name: "calboralDXRx", label: "Calboral DX Rx", type: "number" },
+    { name: "contilexTSRxProduct", label: "Contilex TS Rx Product", type: "number" },
+    { name: "neuroBRxProduct", label: "Neuro B Rx Product", type: "number" },
+    { name: "safyronRxProduct", label: "Safyron Rx Product", type: "number" },
+    { name: "specbac1gRx", label: "Specbac 1g Rx", type: "number" },
+    { name: "ucol2Rx", label: "Ucol 2 Rx", type: "number" },
+    { name: "viodinMWashRx", label: "Viodin M Wash Rx", type: "number" },
+    { name: "viodin10Soln100mlRx", label: "Viodin 10 Soln 100ml Rx", type: "number" },
+    { name: "viodin10Soln15mlRx", label: "Viodin 10 Soln 15ml Rx", type: "number" },
+    { name: "zimax500Rx", label: "Zimax 500 Rx", type: "number" },
+    { name: "zimaxPFS30mlRx", label: "Zimax PFS 30ml Rx", type: "number" },
+  ],
   // ================= Orders =================
   [
     { name: "SBUCOrderRouteName", label: "SBU-C Order Route Name", type: "text" },
@@ -239,6 +262,7 @@ export default function SubmitForm() {
               const sectionTitles = [
                 "Forecast Section (Todays Forecast)",
                 "Rx Section (Yesterday no. of Rx)",
+                "Top 20 Products Section",
                 "Order Section",
                 "Strategic Basket Order",
                 "Focus Basket Order",

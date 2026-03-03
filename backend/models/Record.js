@@ -49,6 +49,28 @@ const recordSchema = new mongoose.Schema({
   SBUCRxWithoutBasketandNewProductRx: { type: Number },
   totalRxs: { type: Number },
 
+  // Top 20 Products Section
+  acePlusRx: { type: Number },
+  aceSyp100mlRx: { type: Number },
+  aceSyp60mlMangoRx: { type: Number },
+  aceSyp60mlOrangeRx: { type: Number },
+  aceXRRx: { type: Number },
+  b50ForteCapRx: { type: Number },
+  calbo500Rx: { type: Number },
+  calboDRxProduct: { type: Number },
+  calboralDRx: { type: Number },
+  calboralDXRx: { type: Number },
+  contilexTSRxProduct: { type: Number },
+  neuroBRxProduct: { type: Number },
+  safyronRxProduct: { type: Number },
+  specbac1gRx: { type: Number },
+  ucol2Rx: { type: Number },
+  viodinMWashRx: { type: Number },
+  viodin10Soln100mlRx: { type: Number },
+  viodin10Soln15mlRx: { type: Number },
+  zimax500Rx: { type: Number },
+  zimaxPFS30mlRx: { type: Number },
+
   // Order Section
   SBUCOrderRouteName: { type: String },
   noOfPartySBUCOrderRoute: { type: Number },

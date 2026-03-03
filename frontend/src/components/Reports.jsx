@@ -145,6 +145,28 @@ export default function Reports() {
     SBUCRxWithoutBasketandNewProductRx: "SBU-C Rx (Without Basket)",
     totalRxs: "Total Rxs",
 
+    // Top 20 Products Section
+    acePlusRx: "Ace Plus Rx",
+    aceSyp100mlRx: "Ace Syp 100ml Rx",
+    aceSyp60mlMangoRx: "Ace Syp 60ml Mango Rx",
+    aceSyp60mlOrangeRx: "Ace Syp 60ml Orange Rx",
+    aceXRRx: "Ace XR Rx",
+    b50ForteCapRx: "B50 Forte Cap Rx",
+    calbo500Rx: "Calbo 500 Rx",
+    calboDRxProduct: "Calbo D Rx Product",
+    calboralDRx: "Calboral D Rx",
+    calboralDXRx: "Calboral DX Rx",
+    contilexTSRxProduct: "Contilex TS Rx Product",
+    neuroBRxProduct: "Neuro B Rx Product",
+    safyronRxProduct: "Safyron Rx Product",
+    specbac1gRx: "Specbac 1g Rx",
+    ucol2Rx: "Ucol 2 Rx",
+    viodinMWashRx: "Viodin M Wash Rx",
+    viodin10Soln100mlRx: "Viodin 10 Soln 100ml Rx",
+    viodin10Soln15mlRx: "Viodin 10 Soln 15ml Rx",
+    zimax500Rx: "Zimax 500 Rx",
+    zimaxPFS30mlRx: "Zimax PFS 30ml Rx",
+
     // Order Section
     SBUCOrderRouteName: "SBUC Order Route Name",
     noOfPartySBUCOrderRoute: "No of Party SBUC Order Route",
