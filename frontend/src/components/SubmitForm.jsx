@@ -58,6 +58,13 @@ const FIELD_GROUPS = [
       readOnly: true,
     },
     { name: "totalRxs", label: "Total Rxs", type: "number", readOnly: true },
+
+   {
+  name: "totalRxSnapshot",
+  label: "Total Rx Snapshot",
+  type: "number",
+  className: "text-red-600 bg-red-100 border-red-400"
+   }
   ],
 
   // ================ Top 20 Products ================
@@ -306,9 +313,9 @@ export default function SubmitForm() {
                         ? "Text only (No numbers allowed)"
                         : f.placeholder
                     }
-                    className={`border p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                      f.readOnly || alreadySubmitted ? "bg-gray-100 cursor-not-allowed" : ""
-                    }`}
+                   className={`border p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+  f.readOnly || alreadySubmitted ? "bg-gray-100 cursor-not-allowed" : ""
+} ${f.className || ""}`}
                     readOnly={f.readOnly || alreadySubmitted}
                     onKeyDown={(e) => {
                       if (

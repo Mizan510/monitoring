@@ -49,6 +49,8 @@ const recordSchema = new mongoose.Schema({
   SBUCRxWithoutBasketandNewProductRx: { type: Number },
   totalRxs: { type: Number },
 
+  totalRxSnapshot: { type: Number },
+
   // Top 20 Products Section
   acePlusRx: { type: Number },
   aceSyp100mlRx: { type: Number },

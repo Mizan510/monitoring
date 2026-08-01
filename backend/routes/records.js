@@ -55,6 +55,8 @@ router.post("/", authMiddleware, async (req, res) => {
       "SBUCRxWithoutBasketandNewProductRx",
       "totalRxs",
 
+      "totalRxSnapshot",
+
       //Top 20 Products
       "acePlusRx",
       "aceSyp100mlRx",
@@ -292,6 +294,7 @@ router.get("/export", authMiddleware, async (req, res) => {
           "GP Rx",
           "SBU-C Rx (Without Basket)",
           "Total Rxs",
+          "Total Rx Snapshot",
         ],
         color: "FFCCFFCC",
       },
@@ -319,9 +322,9 @@ router.get("/export", authMiddleware, async (req, res) => {
           "Viodin 10 Soln 100ml Rx",
           "Viodin 10 Soln 15ml Rx",
           "Zimax 500 Rx",
-          "Zimax PFS 30ml Rx"
+          "Zimax PFS 30ml Rx",
         ],
-        color: "FFFFE599"
+        color: "FFFFE599",
       },
 
       // Order Section
@@ -428,6 +431,7 @@ router.get("/export", authMiddleware, async (req, res) => {
       "GP Rx": "gpRx",
       "SBU-C Rx (Without Basket)": "SBUCRxWithoutBasketandNewProductRx",
       "Total Rxs": "totalRxs",
+      "Total Rx Snapshot": "totalRxSnapshot",
 
       // Top 20 Products
       "Ace Plus Rx": "acePlusRx",
@@ -441,16 +445,15 @@ router.get("/export", authMiddleware, async (req, res) => {
       "Calboral D Rx": "calboralDRx",
       "Calboral DX Rx": "calboralDXRx",
       "Contilex TS Rx Product": "contilexTSRxProduct",
-      "Neuro B Rx Product": "neuroBRxProduct",  
+      "Neuro B Rx Product": "neuroBRxProduct",
       "Safyron Rx Product": "safyronRxProduct",
       "Specbac 1g Rx": "specbac1gRx",
       "Ucol 2 Rx": "ucol2Rx",
-      "Viodin M Wash Rx": "viodinMWashRx",  
+      "Viodin M Wash Rx": "viodinMWashRx",
       "Viodin 10 Soln 100ml Rx": "viodin10Soln100mlRx",
       "Viodin 10 Soln 15ml Rx": "viodin10Soln15mlRx",
       "Zimax 500 Rx": "zimax500Rx",
       "Zimax PFS 30ml Rx": "zimaxPFS30mlRx",
-      
 
       // Orders
       "SBU C Order Route Name": "SBUCOrderRouteName",

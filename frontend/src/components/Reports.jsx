@@ -144,6 +144,8 @@ export default function Reports() {
 
     SBUCRxWithoutBasketandNewProductRx: "SBU-C Rx (Without Basket)",
     totalRxs: "Total Rxs",
+    
+    totalRxSnapshot: "Total Rx Snapshot",
 
     // Top 20 Products Section
     acePlusRx: "Ace Plus Rx",
